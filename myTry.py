@@ -27,6 +27,13 @@ def calculate_word_score(word, bonuses):
     
     return score
 
+def doubleLetter(letter):
+    letter = letter.lower()  # Convert to lowercase to handle uppercase inputs
+    if letter in letter_scores:
+        return letter_scores[letter] * 2 
+    else:
+        return 0  # Return 0 if the letter is not found in the dictionary
+
 while True:
     type = input("Are you entering a word or a list of words? (W/L) ").upper()
 
@@ -49,10 +56,12 @@ if type == 'W':
     if bStatus == 'Y':
         bonus = input("What type of bonus do you have? (DL/TL/DW/TW) ").upper()
 
-        
+
         if bonus == 'DL':
             bonusCalc = input("Which letter is the bonus on? ")
-            bonuses = {'double_letter': 1}
+            score = doubleLetter(bonusCalc)
+
+            
 
 
         elif bonus == 'TL':
