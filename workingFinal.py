@@ -4,7 +4,6 @@ letterScores = {
     's': 1, 't': 1, 'u': 1, 'v': 4, 'w': 4, 'x': 8, 'y': 4, 'z': 10
 }
 
-
 #this calculated the total point of the word minus the bonuses
 def calculate_score(word):
     wordScore = 0
@@ -31,6 +30,17 @@ def trippleLetter(letters):
 
 #validation for double letters
 word = input("Enter a word: ")
+
+#blank tile edit
+decrease = input("Which letters are blank tiles?: ")
+if decrease == "":
+    Bdecrease = 0
+else:
+    Bdecrease = 0
+    for letters in decrease:
+        letters = letters.lower()
+        Bdecrease += letterScores.get(letters, 0)
+
 testD = input("Which letters would you like to double? ")
 for letter in testD:
     letter = letter.lower()
@@ -56,7 +66,7 @@ for letter in testT:
 if testT == "":
     lettersT = ""
 
-
+#finds multiplier for case of double or tripple word bonuses
 multiplier = input("Is there a double word bonus?: (Y/N)").lower()
 if multiplier == "y":
     multiply = 2
@@ -68,19 +78,17 @@ elif multiplier != "y":
         multiply = 1
 else: 
     multiply = 1
-    
 
-
-wordScore = calculate_score(word)
+#number crunch
+wordScore = calculate_score(word) - Bdecrease
 doubleScore = doubleScore(lettersD)
 trippleScore = trippleLetter(lettersT)
 finalScore = (wordScore) + (doubleScore/2) + ((trippleScore/3)*2)
-ultimateScore = finalScore * multiply
+ultimateScore = (finalScore * multiply)
 
-
+#result print
 print(f"The score for the word {word} is: {wordScore}")
 print(f"The score for the double bonuses is {doubleScore}")
 print(f"The score for the tripple bonuses is {trippleScore}")
-print(f"\n Your word score is {finalScore}")
+print(f"\nYour word score is {finalScore}")
 print(f"Your total score is {ultimateScore}\n")
-
