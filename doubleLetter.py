@@ -14,11 +14,15 @@ def doubleLetter(letter):
     else:
         return 0  # Return 0 if the letter is not found in the dictionary
 
-user_letter = input("Enter the letter you would like doubled: ")
-score = doubleLetter(user_letter)
+totalScore = 0
 
-print(f"The score of {user_letter} is {score / 2}. After doubling '{user_letter}' the score is {score}")
+numLetter = int(input("How many letters would you like to double?: "))
+for i in range(numLetter): 
+    user_letter = input("Enter the letter you would like doubled: ")
+    score = doubleLetter(user_letter)
+    print(f"The score of {user_letter} is {score / 2}. After doubling '{user_letter}' the score is {score}")
+    totalScore = totalScore + score
+    print(totalScore)
 
 
-
-
+print(totalScore)

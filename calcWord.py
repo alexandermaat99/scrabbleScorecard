@@ -11,6 +11,16 @@ def calculate_score(word):
         score += letter_scores.get(letter, 0)  # Get the score for the letter from the dictionary, default to 0 if not found
     return score
 
+
+        
+    
+
+
 word = input("Enter a word: ")
 score = calculate_score(word)
+
+
+
 print(f"The score for the word {word} is: {score}")
+
+
