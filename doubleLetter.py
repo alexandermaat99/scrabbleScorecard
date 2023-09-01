@@ -26,3 +26,4 @@ for i in range(numLetter):
 
 
 print(totalScore)
+
