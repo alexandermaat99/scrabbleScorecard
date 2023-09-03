@@ -31,7 +31,7 @@ def trippleLetter(letters):
 #validation for double letters
 word = input("Enter a word: ")
 
-#blank tile edit
+#blank tile edit try make this but have it remove the letters from the world
 decrease = input("Which letters are blank tiles?: ")
 if decrease == "":
     Bdecrease = 0
